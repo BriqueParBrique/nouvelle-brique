@@ -493,6 +493,15 @@ img {
   color: var(--color-white);
 }
 
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* ============================================
    Navigation entre niveaux (footer)
    ============================================ */

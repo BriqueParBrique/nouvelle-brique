@@ -12,6 +12,7 @@ title: 'Nouvelle Brique - BriqueParBrique'
 description: 'Mini-onboarding pour Nouvelle Brique'
 url: 'https://briqueparbrique.github.io'
 baseurl: '/nouvelle-brique'
+repository: 'BriqueParBrique/nouvelle-brique'
 
 collections:
   steps:

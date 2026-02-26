@@ -51,6 +51,12 @@
       {% endif %}
     </nav>
     {% endif %}
+    {% if site.repository %}
+    <div class="footer-links">
+      <a href="https://github.com/{{ site.repository }}/edit/main/{{ page.path }}">Modifier cette page</a>
+      <a href="https://github.com/{{ site.repository }}/issues/new?title=Problème : {{ page.title | default: site.title | url_encode }}&body=Page : {{ page.url | absolute_url | url_encode }}%0A%0ADécrivez le problème ici.">Signaler un problème</a>
+    </div>
+    {% endif %}
     <div class="footer-content">
       <p>© {{ 'now' | date: '%Y' }} <a href="https://briqueparbrique.github.io">BriqueParBrique</a></p>
     </div>
