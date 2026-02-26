@@ -1,4 +1,24 @@
 /* ============================================
+   Accessibilité
+   ============================================ */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  padding: 0.5rem 1rem;
+  background: var(--brique-primary, #3b7dd8);
+  color: #fff;
+  z-index: 1000;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
    Variables & Couleurs
    ============================================ */
 

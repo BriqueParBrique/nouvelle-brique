@@ -17,7 +17,7 @@ layout: default
 
 <article class="step-container">
 
-  <div class="progress-bar">
+  <div class="progress-bar" role="progressbar" aria-valuenow="{{ step_number }}" aria-valuemin="1" aria-valuemax="{{ total }}" aria-label="Progression : étape {{ step_number }} sur {{ total }}">
     <div class="progress-bar-fill" style="width: {{ step_number | times: 100 | divided_by: total }}%"></div>
   </div>
 
@@ -30,7 +30,7 @@ layout: default
     {{ content }}
   </div>
 
-  <nav class="step-nav">
+  <nav class="step-nav" aria-label="Navigation entre étapes">
     {% if current_index > 0 %}
       {% assign prev_index = current_index | minus: 1 %}
       {% assign prev_step = steps[prev_index] %}

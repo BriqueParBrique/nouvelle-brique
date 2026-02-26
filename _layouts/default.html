@@ -11,6 +11,8 @@
 </head>
 <body class="brique-{{ site.brique.color | default: 'blue' }}">
 
+  <a href="#main-content" class="skip-link">Aller au contenu</a>
+
   <header class="site-header">
     <div class="header-content">
       <a href="{{ '/' | relative_url }}" class="header-brand">
@@ -18,9 +20,9 @@
           <img src="{{ site.brique.logo | relative_url }}" alt="{{ site.brique.name }}" class="header-logo">
         {% endif %}
         <span class="header-name">{{ site.brique.name }}</span>
-        <span class="header-level" title="Niveau {{ site.brique.level }}">
+        <span class="header-level" role="img" aria-label="Niveau {{ site.brique.level }} sur 3">
           {% for i in (1..3) %}
-            <span class="level-dot {% if i <= site.brique.level %}active{% endif %}"></span>
+            <span class="level-dot {% if i <= site.brique.level %}active{% endif %}" aria-hidden="true"></span>
           {% endfor %}
         </span>
       </a>
@@ -29,18 +31,18 @@
   </header>
 
   {% if site.brique.status == "development" %}
-  <div class="dev-banner">
+  <div class="dev-banner" role="alert">
     ⚠ Ce contenu est en cours de développement
   </div>
   {% endif %}
 
-  <main class="site-main">
+  <main class="site-main" id="main-content">
     {{ content }}
   </main>
 
   <footer class="site-footer">
     {% if site.brique.prev_level_url != "" or site.brique.next_level_url != "" %}
-    <nav class="level-nav">
+    <nav class="level-nav" aria-label="Navigation entre niveaux">
       {% if site.brique.prev_level_url != "" %}
         <a href="{{ site.brique.prev_level_url }}" class="level-nav-link level-nav-prev">← Niveau précédent</a>
       {% endif %}
