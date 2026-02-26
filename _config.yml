@@ -10,8 +10,8 @@ brique:
 
 title: 'Nouvelle Brique - BriqueParBrique'
 description: 'Mini-onboarding pour Nouvelle Brique'
-url: ''
-baseurl: ''
+url: 'https://briqueparbrique.github.io'
+baseurl: '/nouvelle-brique'
 
 collections:
   steps:
