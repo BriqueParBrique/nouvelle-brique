@@ -7,6 +7,6 @@ WORKDIR /srv/jekyll
 COPY Gemfile ./
 RUN bundle install && rm -f Gemfile.lock
 
-EXPOSE 4000 35729
+EXPOSE 4001 35730
 
-CMD ["sh", "-c", "rm -f Gemfile.lock && bundle install --quiet && bundle exec jekyll serve --host 0.0.0.0 --livereload --force_polling"]
+CMD ["sh", "-c", "rm -f Gemfile.lock && bundle install --quiet && bundle exec jekyll serve --host 0.0.0.0 --port 4001 --livereload --livereload-port 35730 --force_polling"]
