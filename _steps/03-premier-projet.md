@@ -33,7 +33,7 @@ Lancez votre programme :
 echo "Bonjour, BriqueParBrique !"
 ```
 
-### Bravo !
+### Bravo
 
 Vous avez terminé ce mini-onboarding. Vous connaissez maintenant les bases de {{ site.brique.name }} et êtes prêt à aller plus loin.
 
