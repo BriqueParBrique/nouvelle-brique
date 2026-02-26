@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+{% assign steps = site.data.steps %}
+{% assign total = steps | size %}
+{% assign current_index = nil %}
+
+{% for s in steps %}
+  {% assign step_slug = page.url | remove: '/' %}
+  {% if s.file == step_slug %}
+    {% assign current_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% assign step_number = current_index | plus: 1 %}
+
+<article class="step-container">
+
+  <div class="progress-bar">
+    <div class="progress-bar-fill" style="width: {{ step_number | times: 100 | divided_by: total }}%"></div>
+  </div>
+
+  <div class="step-header">
+    <span class="step-number">Étape {{ step_number }}/{{ total }}</span>
+    <h1 class="step-title">{{ page.title }}</h1>
+  </div>
+
+  <div class="step-content">
+    {{ content }}
+  </div>
+
+  <nav class="step-nav">
+    {% if current_index > 0 %}
+      {% assign prev_index = current_index | minus: 1 %}
+      {% assign prev_step = steps[prev_index] %}
+      <a href="{{ prev_step.file | prepend: '/' | append: '/' | relative_url }}" class="step-nav-link step-nav-prev">
+        ← {{ prev_step.title }}
+      </a>
+    {% else %}
+      <span class="step-nav-link step-nav-placeholder"></span>
+    {% endif %}
+
+    {% assign last_index = total | minus: 1 %}
+    {% if current_index < last_index %}
+      {% assign next_index = current_index | plus: 1 %}
+      {% assign next_step = steps[next_index] %}
+      <a href="{{ next_step.file | prepend: '/' | append: '/' | relative_url }}" class="step-nav-link step-nav-next">
+        {{ next_step.title }} →
+      </a>
+    {% else %}
+      <a href="{{ '/' | relative_url }}" class="step-nav-link step-nav-next step-nav-finish">
+        Terminer ✓
+      </a>
+    {% endif %}
+  </nav>
+
+</article>

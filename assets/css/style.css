@@ -1,0 +1,557 @@
+/* ============================================
+   Variables & Couleurs
+   ============================================ */
+
+:root {
+  --color-bg: #f5f5f0;
+  --color-text: #333;
+  --color-text-light: #555;
+  --color-text-muted: #666;
+  --color-white: #fff;
+  --color-dark: #2c3e50;
+  --color-border: #e8e8e3;
+  --color-code-bg: #f0f0ea;
+
+  --brique-primary: #3b7dd8;
+  --brique-primary-light: #5a9be6;
+  --brique-gradient: linear-gradient(135deg, #3b7dd8, #5a9be6);
+
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --content-width: 720px;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+/* Couleurs par brique */
+.brique-blue {
+  --brique-primary: #3b7dd8;
+  --brique-primary-light: #5a9be6;
+  --brique-gradient: linear-gradient(135deg, #3b7dd8, #5a9be6);
+}
+
+.brique-teal {
+  --brique-primary: #2a9d8f;
+  --brique-primary-light: #3dbdad;
+  --brique-gradient: linear-gradient(135deg, #2a9d8f, #3dbdad);
+}
+
+.brique-orange {
+  --brique-primary: #e09f3e;
+  --brique-primary-light: #f0b95a;
+  --brique-gradient: linear-gradient(135deg, #e09f3e, #f0b95a);
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-stack);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--brique-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+
+.site-header {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.header-brand:hover {
+  text-decoration: none;
+}
+
+.header-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.header-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.header-level {
+  display: flex;
+  gap: 3px;
+  margin-left: 0.25rem;
+}
+
+.level-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+.level-dot.active {
+  background: var(--brique-primary);
+}
+
+.header-back {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.header-back:hover {
+  color: var(--brique-primary);
+}
+
+/* ============================================
+   Bannière développement
+   ============================================ */
+
+.dev-banner {
+  background: #fef3cd;
+  color: #856404;
+  text-align: center;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ============================================
+   Hero (page d'accueil)
+   ============================================ */
+
+.hero {
+  background: var(--brique-gradient);
+  padding: 4rem 1.5rem;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.hero-content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.hero-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.hero-level {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.level-pyramid {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.level-pyramid.active {
+  background: var(--color-white);
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta {
+  display: inline-block;
+  background: var(--color-white);
+  color: var(--brique-primary);
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+/* ============================================
+   Steps overview (page d'accueil)
+   ============================================ */
+
+.steps-overview {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.steps-overview-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.step-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-white);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--color-text);
+}
+
+.step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.step-card-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--brique-gradient);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.step-card-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* ============================================
+   Step page
+   ============================================ */
+
+.step-container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--brique-gradient);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Step header */
+.step-header {
+  margin-bottom: 2rem;
+}
+
+.step-number {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brique-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.step-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+/* Step content (Markdown) */
+.step-content {
+  line-height: 1.8;
+}
+
+.step-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.step-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  margin-bottom: 1rem;
+}
+
+.step-content ul, .step-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.step-content li {
+  margin-bottom: 0.35rem;
+}
+
+.step-content code {
+  background: var(--color-code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.step-content pre {
+  background: var(--color-dark);
+  color: #e8e8e3;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.step-content pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9rem;
+  color: inherit;
+}
+
+.step-content strong {
+  font-weight: 700;
+}
+
+.step-content blockquote {
+  border-left: 4px solid var(--brique-primary);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  background: var(--color-code-bg);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* Step navigation */
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  gap: 1rem;
+}
+
+.step-nav-link {
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.step-nav-prev {
+  color: var(--color-text-muted);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+}
+
+.step-nav-prev:hover {
+  background: var(--color-bg);
+  text-decoration: none;
+}
+
+.step-nav-next {
+  background: var(--brique-gradient);
+  color: var(--color-white);
+}
+
+.step-nav-next:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.step-nav-placeholder {
+  visibility: hidden;
+}
+
+.step-nav-finish {
+  background: linear-gradient(135deg, #2a9d8f, #3dbdad);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.site-footer {
+  background: var(--color-dark);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: #7ab8f5;
+}
+
+.site-footer a:hover {
+  color: var(--color-white);
+}
+
+/* ============================================
+   Navigation entre niveaux (footer)
+   ============================================ */
+
+.level-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.level-nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.2s, color 0.2s;
+}
+
+.level-nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 680px) {
+  .hero {
+    padding: 2.5rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+  }
+
+  .step-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .step-nav {
+    flex-direction: column;
+  }
+
+  .step-nav-link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .step-nav-placeholder {
+    display: none;
+  }
+
+  .step-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .level-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .level-nav-link {
+    width: 100%;
+    text-align: center;
+  }
+}

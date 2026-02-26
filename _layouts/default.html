@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body class="brique-{{ site.brique.color | default: 'blue' }}">
+
+  <header class="site-header">
+    <div class="header-content">
+      <a href="{{ '/' | relative_url }}" class="header-brand">
+        {% if site.brique.logo %}
+          <img src="{{ site.brique.logo | relative_url }}" alt="{{ site.brique.name }}" class="header-logo">
+        {% endif %}
+        <span class="header-name">{{ site.brique.name }}</span>
+        <span class="header-level" title="Niveau {{ site.brique.level }}">
+          {% for i in (1..3) %}
+            <span class="level-dot {% if i <= site.brique.level %}active{% endif %}"></span>
+          {% endfor %}
+        </span>
+      </a>
+      <a href="https://briqueparbrique.github.io" class="header-back">← BriqueParBrique</a>
+    </div>
+  </header>
+
+  {% if site.brique.status == "development" %}
+  <div class="dev-banner">
+    ⚠ Ce contenu est en cours de développement
+  </div>
+  {% endif %}
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    {% if site.brique.prev_level_url != "" or site.brique.next_level_url != "" %}
+    <nav class="level-nav">
+      {% if site.brique.prev_level_url != "" %}
+        <a href="{{ site.brique.prev_level_url }}" class="level-nav-link level-nav-prev">← Niveau précédent</a>
+      {% endif %}
+      {% if site.brique.next_level_url != "" %}
+        <a href="{{ site.brique.next_level_url }}" class="level-nav-link level-nav-next">Niveau suivant →</a>
+      {% endif %}
+    </nav>
+    {% endif %}
+    <div class="footer-content">
+      <p>© {{ 'now' | date: '%Y' }} <a href="https://briqueparbrique.github.io">BriqueParBrique</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

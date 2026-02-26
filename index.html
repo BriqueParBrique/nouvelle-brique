@@ -1,0 +1,33 @@
+---
+layout: default
+title: "Accueil"
+---
+
+<section class="hero">
+  <div class="hero-content">
+    {% if site.brique.logo %}
+      <img src="{{ site.brique.logo | relative_url }}" alt="{{ site.brique.name }}" class="hero-logo">
+    {% endif %}
+    <h1 class="hero-title">{{ site.brique.name }}</h1>
+    <div class="hero-level" title="Niveau {{ site.brique.level }}">
+      {% for i in (1..3) %}
+        <span class="level-pyramid {% if i <= site.brique.level %}active{% endif %}"></span>
+      {% endfor %}
+    </div>
+    <p class="hero-description">{{ site.description }}</p>
+    {% assign first_step = site.data.steps | first %}
+    <a href="{{ first_step.file | prepend: '/' | append: '/' | relative_url }}" class="hero-cta">Commencer</a>
+  </div>
+</section>
+
+<section class="steps-overview">
+  <h2 class="steps-overview-title">Parcours</h2>
+  <div class="steps-list">
+    {% for step in site.data.steps %}
+      <a href="{{ step.file | prepend: '/' | append: '/' | relative_url }}" class="step-card">
+        <span class="step-card-number">{{ forloop.index }}</span>
+        <span class="step-card-title">{{ step.title }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
