@@ -3,7 +3,7 @@ brique:
   name: 'Nouvelle Brique'
   color: blue # blue, teal, ou orange
   level: 1 # 1, 2, ou 3
-  logo: assets/img/logo.png
+  logo: /assets/img/logo.png
   status: 'development' # "development" → affiche une bannière, vide ou absent → pas de bannière
   prev_level_url: '' # URL du niveau précédent (vide = pas de lien)
   next_level_url: '' # URL du niveau suivant (vide = pas de lien)
