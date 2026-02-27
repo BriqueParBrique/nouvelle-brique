@@ -16,7 +16,8 @@ title: "Accueil"
     </div>
     <p class="hero-description">{{ site.description }}</p>
     {% assign first_step = site.data.steps | first %}
-    <a href="{{ first_step.file | prepend: '/' | append: '/' | relative_url }}" class="hero-cta">Commencer</a>
+    <a href="{{ first_step.file | prepend: '/' | append: '/' | relative_url }}" class="hero-cta" data-reset-progress>Commencer</a>
+    <a href="#" class="hero-resume">Reprendre →</a>
   </div>
 </section>
 
@@ -24,7 +25,7 @@ title: "Accueil"
   <h2 class="steps-overview-title">Parcours</h2>
   <div class="steps-list">
     {% for step in site.data.steps %}
-      <a href="{{ step.file | prepend: '/' | append: '/' | relative_url }}" class="step-card">
+      <a href="{{ step.file | prepend: '/' | append: '/' | relative_url }}" class="step-card" data-step-file="{{ step.file }}">
         <span class="step-card-number">{{ forloop.index }}</span>
         <span class="step-card-title">{{ step.title }}</span>
       </a>

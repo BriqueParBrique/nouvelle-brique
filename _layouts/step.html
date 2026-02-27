@@ -15,7 +15,7 @@ layout: default
 
 {% assign step_number = current_index | plus: 1 %}
 
-<article class="step-container">
+<article class="step-container" data-step="{{ page.url | remove: '/' }}">
 
   <div class="progress-bar" role="progressbar" aria-valuenow="{{ step_number }}" aria-valuemin="1" aria-valuemax="{{ total }}" aria-label="Progression : étape {{ step_number }} sur {{ total }}">
     <div class="progress-bar-fill" style="width: {{ step_number | times: 100 | divided_by: total }}%"></div>

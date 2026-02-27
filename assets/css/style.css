@@ -93,6 +93,15 @@
   .level-nav-link {
     border-color: rgba(255, 255, 255, 0.15);
   }
+
+  .step-card.visited .step-card-number {
+    background: #237a6f;
+  }
+
+  @keyframes pulse-current {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(90, 155, 230, 0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(90, 155, 230, 0); }
+  }
 }
 
 /* Couleurs par brique */
@@ -360,6 +369,52 @@ img {
 .step-card-title {
   font-weight: 600;
   font-size: 1.05rem;
+}
+
+.step-card.visited .step-card-number {
+  background: #2a9d8f;
+  font-size: 0;
+}
+
+.step-card.visited .step-card-number::after {
+  content: "✓";
+  font-size: 1.1rem;
+}
+
+.step-card.current .step-card-number {
+  font-size: 0;
+  background: var(--color-white);
+  border: 3px solid var(--brique-primary);
+  animation: pulse-current 2s ease-in-out infinite;
+}
+
+.step-card.current .step-card-number::after {
+  content: "▶";
+  font-size: 0.85rem;
+  color: var(--brique-primary);
+}
+
+@keyframes pulse-current {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 125, 216, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(59, 125, 216, 0); }
+}
+
+/* Resume link (homepage hero) */
+.hero-resume {
+  display: none;
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.hero-resume:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.hero-resume.visible {
+  display: inline-block;
 }
 
 /* ============================================
