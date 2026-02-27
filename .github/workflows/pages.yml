@@ -1,3 +1,4 @@
+# Managed by BriqueParBrique/nouvelle-brique — do not edit in brick repos
 name: Deploy to GitHub Pages
 
 on:
@@ -20,7 +21,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -31,10 +32,16 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Validate HTML
-        run: bundle exec htmlproofer _site --ignore-urls "/^#/" --no-enforce-https --swap-urls "^/nouvelle-brique/:/"
+      - name: Read baseurl
+        id: config
+        run: |
+          BASEURL=$(ruby -ryaml -e "puts YAML.load_file('_config.yml')['baseurl']")
+          echo "baseurl=${BASEURL}" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Validate HTML
+        run: bundle exec htmlproofer _site --ignore-urls "/^#/" --no-enforce-https --swap-urls "^${{ steps.config.outputs.baseurl }}/:/"
+
+      - uses: actions/upload-pages-artifact@v4
         if: github.ref == 'refs/heads/main'
         with:
           path: _site

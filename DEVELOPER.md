@@ -1,3 +1,5 @@
+<!-- Managed by BriqueParBrique/nouvelle-brique — do not edit in brick repos -->
+
 # Développement
 
 ## Prérequis

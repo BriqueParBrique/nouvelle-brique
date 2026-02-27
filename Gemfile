@@ -1,3 +1,4 @@
+# Managed by BriqueParBrique/nouvelle-brique — do not edit in brick repos
 source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4"

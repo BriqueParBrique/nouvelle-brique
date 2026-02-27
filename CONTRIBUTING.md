@@ -1,3 +1,5 @@
+<!-- Managed by BriqueParBrique/nouvelle-brique — do not edit in brick repos -->
+
 # Contribuer
 
 Merci de votre intérêt pour ce parcours ! Toute contribution est la bienvenue.
