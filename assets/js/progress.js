@@ -1,3 +1,4 @@
+/* Managed by BriqueParBrique/nouvelle-brique — do not edit in brick repos */
 (function () {
   var baseurl = document.body.getAttribute("data-baseurl") || "";
   var key = "brique-progress-" + baseurl;

@@ -1,3 +1,4 @@
+# Managed by BriqueParBrique/nouvelle-brique — do not edit in brick repos
 image := "nouvelle-brique-jekyll"
 
 # Construire l'image Docker

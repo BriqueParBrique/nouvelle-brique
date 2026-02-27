@@ -1,5 +1,6 @@
 ---
 layout: null
+# Managed by BriqueParBrique/nouvelle-brique — do not edit in brick repos
 ---
 var CACHE_NAME = "brique-v1";
 var BASEURL = "{{ site.baseurl }}";
