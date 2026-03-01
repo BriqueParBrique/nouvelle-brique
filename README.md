@@ -12,6 +12,15 @@ Ce dépôt contient le parcours d'apprentissage « Nouvelle Brique », conçu co
 2. Installation
 3. Premier projet
 
+## Utiliser ce template
+
+Après avoir créé un dépôt à partir de ce template, activez la synchronisation automatique :
+
+1. **Au niveau de l'organisation** : Settings → Actions → General → Workflow permissions → cochez **« Allow GitHub Actions to create and approve pull requests »**
+2. **Au niveau du dépôt** : Settings → Actions → General → Workflow permissions → cochez **« Allow GitHub Actions to create and approve pull requests »**
+
+Les deux niveaux sont nécessaires. Sans ces options, le workflow `Sync from template` ne pourra pas créer de pull requests pour maintenir les fichiers d'infrastructure à jour.
+
 ## Contribuer
 
 Les contributions sont les bienvenues ! Consultez [CONTRIBUTING.md](CONTRIBUTING.md) pour savoir comment améliorer ce parcours.
