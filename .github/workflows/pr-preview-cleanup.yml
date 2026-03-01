@@ -1,0 +1,16 @@
+name: PR Preview Cleanup
+
+on:
+  pull_request:
+    branches: [main]
+    types: [closed]
+
+jobs:
+  teardown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Surge
+        run: npm install -g surge
+
+      - name: Teardown preview
+        run: surge teardown ${{ github.event.repository.name }}-pr-${{ github.event.number }}.surge.sh --token ${{ secrets.SURGE_TOKEN }}
