@@ -18,8 +18,9 @@ Après avoir créé un dépôt à partir de ce template, activez la synchronisat
 
 1. **Au niveau de l'organisation** : Settings → Actions → General → Workflow permissions → cochez **« Allow GitHub Actions to create and approve pull requests »**
 2. **Au niveau du dépôt** : Settings → Actions → General → Workflow permissions → cochez **« Allow GitHub Actions to create and approve pull requests »**
+3. **Secret `SYNC_TEMPLATE_TOKEN`** : créez un PAT (Fine-grained) avec les permissions `contents: write`, `pull-requests: write` et `workflows: write` sur les dépôts de l'organisation, puis ajoutez-le comme secret d'organisation nommé `SYNC_TEMPLATE_TOKEN`
 
-Les deux niveaux sont nécessaires. Sans ces options, le workflow `Sync from template` ne pourra pas créer de pull requests pour maintenir les fichiers d'infrastructure à jour.
+Les deux premiers niveaux sont nécessaires pour autoriser la création de PR. Le token est requis car le workflow synchronise aussi ses propres fichiers (`.github/workflows/`), ce qui nécessite la permission `workflows` que le `GITHUB_TOKEN` par défaut ne peut pas fournir.
 
 ## Contribuer
 

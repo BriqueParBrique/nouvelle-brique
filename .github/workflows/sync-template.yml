@@ -47,6 +47,7 @@ jobs:
         id: create-pr
         uses: peter-evans/create-pull-request@v8
         with:
+          token: ${{ secrets.SYNC_TEMPLATE_TOKEN }}
           title: 'chore: sync template infrastructure files'
           body: |
             Mise à jour automatique des fichiers d'infrastructure depuis le template.
